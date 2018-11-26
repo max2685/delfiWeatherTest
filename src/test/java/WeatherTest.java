@@ -1,4 +1,5 @@
 import pages.BaseFunc;
+import pages.DropDownToggle;
 import pages.HomePage;
 import pages.WeatherPage;
 import org.junit.jupiter.api.Test;
@@ -17,9 +18,9 @@ public class WeatherTest {
         baseFunc.goToURL(HOME_PAGE);
         HomePage homePage = new HomePage(baseFunc);
         Map<String, List> fromHomePage = homePage.getElements();
-        WeatherPage weatherPage = homePage.
 
-
+        DropDownToggle dropDownToggle = homePage.clickDropdownToggle();
+        dropDownToggle.ClickOnWeather();
 
 
     }

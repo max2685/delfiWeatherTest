@@ -33,7 +33,6 @@ public class BaseFunc {
     }
 
     public WebElement getElement(By locator) {
-        Assertions.assertFalse(getElements(locator).isEmpty(), "There are no elements!");
         return browser.findElement(locator);
     }
 

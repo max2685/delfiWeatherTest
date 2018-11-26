@@ -14,6 +14,7 @@ public class HomePage {
 
     private final By ARTICLES = By.xpath(".//a[@class = 'location-tab-title']");
     private final By VALUES = By.xpath(".//div[@class = 'forecast-temp']");
+    private final By DROPMENU = By.xpath("//*[@id=\"md-header\"]/a[1]");
 
 
     public HomePage(BaseFunc baseFunc) {
@@ -40,5 +41,8 @@ public class HomePage {
 
         return map;
     }
-
+    public  DropDownToggle clickDropdownToggle () {
+        baseFunc.getElement(DROPMENU).click();
+        return new DropDownToggle(baseFunc);
+    }
 }
