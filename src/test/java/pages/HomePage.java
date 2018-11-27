@@ -1,7 +1,12 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,7 +47,17 @@ public class HomePage {
         return map;
     }
     public  DropDownToggle clickDropdownToggle () {
-        baseFunc.getElement(DROPMENU).click();
+//        baseFunc.getElement(DROPMENU);
+//        WebElement menu = baseFunc.getElement(DROPMENU);
+
+        Actions actions = new Actions(baseFunc.browser);
+        JavascriptExecutor jse = (JavascriptExecutor)baseFunc.browser;
+        jse.executeScript("window.scrollBy(0,-250)", "");
+        (new WebDriverWait(baseFunc.browser, 10)).until(ExpectedConditions.visibilityOfElementLocated(DROPMENU));
+        actions.click() ;
+//        (new WebDriverWait(baseFunc.browser, 10)).until(ExpectedConditions.visibilityOfElementLocated(DROPMENU));
+
+//        actions.moveToElement(menu,1,1).click().build().perform();
         return new DropDownToggle(baseFunc);
     }
 }

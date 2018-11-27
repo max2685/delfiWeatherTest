@@ -4,6 +4,7 @@ import pages.HomePage;
 import pages.WeatherPage;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class WeatherTest {
         Map<String, List> fromHomePage = homePage.getElements();
 
         DropDownToggle dropDownToggle = homePage.clickDropdownToggle();
-        dropDownToggle.ClickOnWeather();
+//        dropDownToggle.ClickOnWeather();
 
 
     }
