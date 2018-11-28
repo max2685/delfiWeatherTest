@@ -1,10 +1,7 @@
 import pages.BaseFunc;
-import pages.DropDownToggle;
 import pages.HomePage;
-import pages.WeatherPage;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +17,13 @@ public class WeatherTest {
         HomePage homePage = new HomePage(baseFunc);
         Map<String, List> fromHomePage = homePage.getElements();
 
-        DropDownToggle dropDownToggle = homePage.clickDropdownToggle();
+        //Open side Menu
+        homePage.openSideMenu();
+
+        //Select Menu Item by name
+        homePage.selectSideMenuItem("Прогноз погоды");
+
+//        DropDownToggle dropDownToggle = homePage.clickDropdownToggle();
 //        dropDownToggle.ClickOnWeather();
 
 

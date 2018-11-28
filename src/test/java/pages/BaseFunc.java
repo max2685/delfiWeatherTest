@@ -2,9 +2,12 @@ package pages;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -36,4 +39,14 @@ public class BaseFunc {
         return browser.findElement(locator);
     }
 
+    public void scrollTo(int x, int y) {
+        String script = "window.scrollTo(" + x + ", " + y + ");";
+        JavascriptExecutor js = (JavascriptExecutor) browser;
+        js.executeScript(script);
+    }
+
+    public void waitForElement(By locator) {
+        WebDriverWait wait = new WebDriverWait(browser, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 }
