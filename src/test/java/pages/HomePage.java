@@ -28,41 +28,27 @@ public class HomePage {
         this.baseFunc = baseFunc;
     }
 
-    public Map<String, List> getElements() {
-        Map<String, List> map = new HashMap<String, List>();
-        List<WebElement> articles = baseFunc.getElements(ARTICLES);
+    public Map<String, List> getElementsFromHomePage() {
+        Map<String, List> homePagemap = new HashMap<String, List>();
+        List<WebElement> citiesFromHomePage = baseFunc.getElements(ARTICLES);
 
-        for (WebElement element : articles) {
+        for (WebElement element : citiesFromHomePage) {
             element.click();
             List<WebElement> temperatureValues = baseFunc.getElements(VALUES);
 
-            List<Integer> valuesIntegers = new ArrayList<Integer>();
-            for (WebElement value : temperatureValues) {
-                String valuesStrings = value.getText();
+            List<Integer> valuesIntegersFromHomePage = new ArrayList<Integer>();
+            for (WebElement valueHomePage : temperatureValues) {
+                String valuesStrings = valueHomePage.getText();
                 valuesStrings = valuesStrings.substring(0, valuesStrings.length() - 1);
-                valuesIntegers.add(Integer.valueOf(valuesStrings));
+                valuesIntegersFromHomePage.add(Integer.valueOf(valuesStrings));
             }
 
-            map.put(element.getText(), valuesIntegers);
+            homePagemap.put(element.getText(), valuesIntegersFromHomePage);
         }
 
-        return map;
+        return homePagemap;
     }
 
-//    public  DropDownToggle clickDropdownToggle () {
-////        baseFunc.getElement(DROPMENU);
-////        WebElement menu = baseFunc.getElement(DROPMENU);
-//
-//        Actions actions = new Actions(baseFunc.browser);
-//        JavascriptExecutor jse = (JavascriptExecutor)baseFunc.browser;
-//        jse.executeScript("window.scrollBy(0,-250)", "");
-//        (new WebDriverWait(baseFunc.browser, 10)).until(ExpectedConditions.visibilityOfElementLocated(DROPMENU));
-//        actions.click() ;
-////        (new WebDriverWait(baseFunc.browser, 10)).until(ExpectedConditions.visibilityOfElementLocated(DROPMENU));
-//
-////        actions.moveToElement(menu,1,1).click().build().perform();
-//        return new DropDownToggle(baseFunc);
-//    }
 
     public void openSideMenu() {
         baseFunc.scrollTo(0, 0);
@@ -80,6 +66,8 @@ public class HomePage {
             }
         }
 
-        return new WeatherPage();
+        return new WeatherPage(baseFunc);
     }
+
+
 }
