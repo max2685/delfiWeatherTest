@@ -17,9 +17,8 @@ public class HomePage {
     BaseFunc baseFunc;
 
 
-    private final By ARTICLES = By.xpath(".//a[@class = 'location-tab-title']");
-    private final By VALUES = By.xpath(".//div[@class = 'forecast-temp']");
-    private final By DROPMENU = By.xpath("//*[@id=\"md-header\"]/a[1]");
+    private final By CITY_NAME = By.xpath(".//a[@class = 'location-tab-title']");
+    private final By TEMPERATURE = By.xpath(".//div[@class = 'forecast-temp']");
     private final By SIDE_MENU = By.xpath(".//a[@class = 'menu-open']");
     private final By SIDE_MENU_ITEM = By.xpath(".//span[@class = 'link-title']");
 
@@ -30,11 +29,11 @@ public class HomePage {
 
     public Map<String, List> getElementsFromHomePage() {
         Map<String, List> homePagemap = new HashMap<String, List>();
-        List<WebElement> citiesFromHomePage = baseFunc.getElements(ARTICLES);
+        List<WebElement> citiesFromHomePage = baseFunc.getElements(CITY_NAME);
 
         for (WebElement element : citiesFromHomePage) {
             element.click();
-            List<WebElement> temperatureValues = baseFunc.getElements(VALUES);
+            List<WebElement> temperatureValues = baseFunc.getElements(TEMPERATURE);
 
             List<Integer> valuesIntegersFromHomePage = new ArrayList<Integer>();
             for (WebElement valueHomePage : temperatureValues) {
