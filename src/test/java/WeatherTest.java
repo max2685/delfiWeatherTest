@@ -19,10 +19,7 @@ public class WeatherTest {
         HomePage homePage = new HomePage(baseFunc);
         Map<String, List> valuesfromHomePage = homePage.getElementsFromHomePage();
 
-        //Open side Menu
         homePage.openSideMenu();
-
-        //Select Menu Item by name
         homePage.selectSideMenuItem("Прогноз погоды");
 
         WeatherPage weatherPage = new WeatherPage(baseFunc);
