@@ -45,8 +45,18 @@ public class BaseFunc {
         js.executeScript(script);
     }
 
-    public void waitForElement(By locator) {
+    public void waitForElementToBeClickable(By locator) {
         WebDriverWait wait = new WebDriverWait(browser, 10);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    public void writeInTextBox(WebElement element, String text) {
+        element.sendKeys(text);
+    }
+
+    public void waitForElement(By locator) {
+        WebDriverWait wait = new WebDriverWait(browser, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
     }
 }

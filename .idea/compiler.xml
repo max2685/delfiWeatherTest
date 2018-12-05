@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="delfiWeatherTest" />
         <module name="QA homework 2 weather test" />
       </profile>
     </annotationProcessing>

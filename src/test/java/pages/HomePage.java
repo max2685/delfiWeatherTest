@@ -32,8 +32,8 @@ public class HomePage {
         Map<String, List> homePagemap = new HashMap<String, List>();
         List<WebElement> citiesFromHomePage = baseFunc.getElements(ARTICLES);
 
-        for (WebElement element : citiesFromHomePage) {
-            element.click();
+        for (WebElement homePageCity : citiesFromHomePage) {
+            homePageCity.click();
             List<WebElement> temperatureValues = baseFunc.getElements(VALUES);
 
             List<Integer> valuesIntegersFromHomePage = new ArrayList<Integer>();
@@ -43,7 +43,7 @@ public class HomePage {
                 valuesIntegersFromHomePage.add(Integer.valueOf(valuesStrings));
             }
 
-            homePagemap.put(element.getText(), valuesIntegersFromHomePage);
+            homePagemap.put(homePageCity.getText(), valuesIntegersFromHomePage);
         }
 
         return homePagemap;
@@ -52,7 +52,7 @@ public class HomePage {
 
     public void openSideMenu() {
         baseFunc.scrollTo(0, 0);
-        baseFunc.waitForElement(SIDE_MENU);
+        baseFunc.waitForElementToBeClickable(SIDE_MENU);
         baseFunc.getElement(SIDE_MENU).click();
     }
 
@@ -68,6 +68,7 @@ public class HomePage {
 
         return new WeatherPage(baseFunc);
     }
+
 
 
 }
