@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import pages.BaseFunc;
 import pages.HomePage;
 import org.junit.jupiter.api.Test;
-import pages.RezeknePage;
+import pages.CitiesPage;
 import pages.WeatherPage;
 
 import java.util.List;
@@ -27,12 +27,11 @@ public class WeatherTest {
 
         weatherPage.fillField("Rezekne");
 
-        RezeknePage rezeknePage = new RezeknePage(baseFunc);
+        CitiesPage cityPage = new CitiesPage(baseFunc);
 
-        valuesFromWeatherPage = rezeknePage.addWeather(valuesFromWeatherPage);
-//        Assertions.assertEquals(valuesfromHomePage.keySet(), valuesFromWeatherPage.keySet(), "Cities and temperatures are not equal");
+        valuesFromWeatherPage = cityPage.addWeather(valuesFromWeatherPage);
 
-
+        Assertions.assertEquals(valuesfromHomePage, valuesFromWeatherPage, "Cities and temperatures are not equal");
 
     }
 

@@ -19,7 +19,6 @@ public class HomePage {
 
     private final By ARTICLES = By.xpath(".//a[@class = 'location-tab-title']");
     private final By VALUES = By.xpath(".//div[@class = 'forecast-temp']");
-    private final By DROPMENU = By.xpath("//*[@id=\"md-header\"]/a[1]");
     private final By SIDE_MENU = By.xpath(".//a[@class = 'menu-open']");
     private final By SIDE_MENU_ITEM = By.xpath(".//span[@class = 'link-title']");
 

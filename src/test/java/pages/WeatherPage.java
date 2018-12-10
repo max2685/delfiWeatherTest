@@ -44,14 +44,14 @@ public class WeatherPage {
         return weatherPageMap;
     }
 
-    public RezeknePage fillField(String text) {
+    public CitiesPage fillField(String text) {
 
         WebElement field = baseFunc.getElement(FORM).findElement(TEXT_FIELD);
         baseFunc.writeInTextBox(field, text);
 
         baseFunc.waitForElement(LINK);
         baseFunc.getElement(LINK).click();
-        return new RezeknePage(baseFunc);
+        return new CitiesPage(baseFunc);
     }
 
 
