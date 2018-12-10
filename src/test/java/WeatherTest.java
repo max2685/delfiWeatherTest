@@ -29,6 +29,7 @@ public class WeatherTest {
 
         RezeknePage rezeknePage = new RezeknePage(baseFunc);
 
+        valuesFromWeatherPage = rezeknePage.addWeather(valuesFromWeatherPage);
 //        Assertions.assertEquals(valuesfromHomePage.keySet(), valuesFromWeatherPage.keySet(), "Cities and temperatures are not equal");
 
 
