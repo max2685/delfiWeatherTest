@@ -27,9 +27,9 @@ public class BaseFunc {
         browser.get(url);
     }
 
-    public WebDriver getBrowser() {
-        return browser;
-    }
+//    public WebDriver getBrowser() {
+//        return browser.close();
+//    }
 
     public List<WebElement> getElements(By locator) {
         return browser.findElements(locator);
@@ -59,4 +59,5 @@ public class BaseFunc {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
+
 }

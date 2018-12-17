@@ -15,13 +15,14 @@ public class CitiesPage {
     private final By CITY_TEMBERATURE = By.xpath(".//span[@class = 'temp']");
     private final By FORM = By.xpath(".//div[@class = 'dweather2-search-field-inner-wrapper']");
     private final By TEXT_FIELD = By.xpath(".//input[@placeholder = 'Поиск']");
+    private final By LINK = By.xpath(".//a[@data-seoname = 'latvija/daugavpils']");
+
 
     public CitiesPage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
     }
 
-    public Map<String, List> addWeather(Map<String, List> mapToAdd) {
-        //Создаём новый метод addWeather ,который возвращает карту
+    public Map<String, List> addThirdCity(Map<String, List> mapToAdd) {
 
         baseFunc.waitForElement(CITY_NAME);
         WebElement rezekne = baseFunc.getElement(CITY_NAME);
@@ -33,7 +34,32 @@ public class CitiesPage {
         }
         mapToAdd.put(rezekne.getText(), rezekneTemperatures);
 
+        return mapToAdd;
+    }
+
+    public CitiesPage fillField(String text) {
+
+        WebElement field = baseFunc.getElement(FORM).findElement(TEXT_FIELD);
+        baseFunc.writeInTextBox(field, text);
+
+        baseFunc.waitForElement(LINK);
+        baseFunc.getElement(LINK).click();
+        return new CitiesPage(baseFunc);
+    }
+
+    public Map<String, List> addFourthCity(Map<String, List> mapToAdd) {
+
+        baseFunc.waitForElement(CITY_NAME);
+        WebElement daugavpils = baseFunc.getElement(CITY_NAME);
+
+        List<WebElement> daugavpilsDegrees = baseFunc.getElements(CITY_TEMBERATURE);
+        List<Integer> daugavpilsTemperatures = new ArrayList<Integer>();
+        for (WebElement daugavpilsTemperature : daugavpilsDegrees) {
+            daugavpilsTemperatures.add(Integer.valueOf(daugavpilsTemperature.getText().substring(0, daugavpilsTemperature.getText().length() - 1)));
+        }
+        mapToAdd.put(daugavpils.getText(), daugavpilsTemperatures);
 
         return mapToAdd;
+
     }
 }

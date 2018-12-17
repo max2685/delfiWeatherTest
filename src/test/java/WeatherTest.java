@@ -29,10 +29,20 @@ public class WeatherTest {
 
         CitiesPage cityPage = new CitiesPage(baseFunc);
 
-        valuesFromWeatherPage = cityPage.addWeather(valuesFromWeatherPage);
+        valuesFromWeatherPage = cityPage.addThirdCity(valuesFromWeatherPage);
+
+        cityPage.fillField("Daugavpils");
+
+        valuesFromWeatherPage = cityPage.addFourthCity(valuesFromWeatherPage);
 
         Assertions.assertEquals(valuesfromHomePage, valuesFromWeatherPage, "Cities and temperatures are not equal");
+
+//        if (valuesfromHomePage.equals(valuesFromWeatherPage)){
+//
+////
+////        }
 
     }
 
 }
+
