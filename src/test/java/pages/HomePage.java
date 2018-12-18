@@ -1,12 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +17,7 @@ public class HomePage {
     private final By VALUES = By.xpath(".//div[@class = 'forecast-temp']");
     private final By SIDE_MENU = By.xpath(".//a[@class = 'menu-open']");
     private final By SIDE_MENU_ITEM = By.xpath(".//span[@class = 'link-title']");
+    private final By IMG_AD = By.xpath("");
 
 
     public HomePage(BaseFunc baseFunc) {
@@ -28,24 +25,24 @@ public class HomePage {
     }
 
     public Map<String, List> getElementsFromHomePage() {
-        Map<String, List> homePagemap = new HashMap<String, List>();
+        Map<String, List> homePageMap = new HashMap<String, List>();
         List<WebElement> citiesFromHomePage = baseFunc.getElements(ARTICLES);
 
         for (WebElement homePageCity : citiesFromHomePage) {
             homePageCity.click();
             List<WebElement> temperatureValues = baseFunc.getElements(VALUES);
 
-            List<Integer> valuesIntegersFromHomePage = new ArrayList<Integer>();
+            List<Integer> temperaturesFromHomePage = new ArrayList<Integer>();
             for (WebElement valueHomePage : temperatureValues) {
-                String valuesStrings = valueHomePage.getText();
-                valuesStrings = valuesStrings.substring(0, valuesStrings.length() - 1);
-                valuesIntegersFromHomePage.add(Integer.valueOf(valuesStrings));
+                String tempetature = valueHomePage.getText();
+                tempetature = tempetature.substring(0, tempetature.length() - 1);
+                temperaturesFromHomePage.add(Integer.valueOf(tempetature));
             }
 
-            homePagemap.put(homePageCity.getText(), valuesIntegersFromHomePage);
+            homePageMap.put(homePageCity.getText(), temperaturesFromHomePage);
         }
 
-        return homePagemap;
+        return homePageMap;
     }
 
 
@@ -67,7 +64,6 @@ public class HomePage {
 
         return new WeatherPage(baseFunc);
     }
-
 
 
 }
