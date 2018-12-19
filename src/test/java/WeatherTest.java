@@ -38,12 +38,12 @@ public class WeatherTest {
 
         CitiesPage cityPage = new CitiesPage(baseFunc);
 
-        valuesFromWeatherPage = cityPage.addThirdCity(valuesFromWeatherPage);
+        valuesFromWeatherPage = cityPage.addCityRezekne(valuesFromWeatherPage);
         LOGGER.info("Adding another city in the second map");
 
         cityPage.fillField("Daugavpils");
 
-        valuesFromWeatherPage = cityPage.addFourthCity(valuesFromWeatherPage);
+        valuesFromWeatherPage = cityPage.addCityDaugavpils(valuesFromWeatherPage);
         LOGGER.info("Adding another city in the second map");
 
 

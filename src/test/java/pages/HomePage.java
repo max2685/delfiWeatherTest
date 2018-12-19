@@ -1,5 +1,7 @@
 package pages;
 
+import org.apache.logging.log4j.core.util.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -17,11 +19,12 @@ public class HomePage {
     private final By VALUES = By.xpath(".//div[@class = 'forecast-temp']");
     private final By SIDE_MENU = By.xpath(".//a[@class = 'menu-open']");
     private final By SIDE_MENU_ITEM = By.xpath(".//span[@class = 'link-title']");
-    private final By IMG_AD = By.xpath("");
+    private final By IMG_AD = By.xpath("google_ads_frame1");
 
 
     public HomePage(BaseFunc baseFunc) {
         this.baseFunc = baseFunc;
+        Assertions.assertTrue(baseFunc.isElementPresent(IMG_AD), "There is no advertisment");
     }
 
     public Map<String, List> getElementsFromHomePage() {

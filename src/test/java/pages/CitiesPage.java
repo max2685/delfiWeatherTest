@@ -22,7 +22,7 @@ public class CitiesPage {
         this.baseFunc = baseFunc;
     }
 
-    public Map<String, List> addThirdCity(Map<String, List> mapToAdd) {
+    public Map<String, List> addCityRezekne(Map<String, List> mapToAdd) {
 
         baseFunc.waitForElement(CITY_NAME);
         WebElement rezekne = baseFunc.getElement(CITY_NAME);
@@ -47,7 +47,7 @@ public class CitiesPage {
         return new CitiesPage(baseFunc);
     }
 
-    public Map<String, List> addFourthCity(Map<String, List> mapToAdd) {
+    public Map<String, List> addCityDaugavpils(Map<String, List> mapToAdd) {
 
         baseFunc.waitForElement(CITY_NAME);
         WebElement daugavpils = baseFunc.getElement(CITY_NAME);

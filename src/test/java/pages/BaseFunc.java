@@ -27,9 +27,9 @@ public class BaseFunc {
         browser.get(url);
     }
 
-//    public WebDriver getBrowser() {
-//        return browser.close();
-//    }
+    public boolean isElementPresent(By locator) {
+        return getElements(locator).isEmpty();
+    }
 
     public List<WebElement> getElements(By locator) {
         return browser.findElements(locator);
@@ -46,7 +46,7 @@ public class BaseFunc {
     }
 
     public void waitForElementToBeClickable(By locator) {
-        WebDriverWait wait = new WebDriverWait(browser, 10);
+        WebDriverWait wait = new WebDriverWait(browser, 5);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
